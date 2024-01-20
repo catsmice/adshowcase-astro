@@ -6,41 +6,47 @@
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
     <!-- Article 1 -->
     <div>
-     <img alt="Blue couch in a living room" class="w-full h-auto rounded-lg mb-4" src="https://placehold.co/256x144"/>
+     <a href="#" id="imageLink">
+     <img alt="Blue couch in a living room" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-1-256x144.png"/>
+     </a>
      <h2 class="text-xl font-semibold mb-2">
-      Aliqua Irure Tempor
+      肌研極潤PREMIUM
      </h2>
      <p class="text-gray-600 mb-2">
-      Lorem Occaecat Volup
+      樂敦製藥
      </p>
      <p class="text-gray-400">
-      Dec 22, 2022 • 5 mins read
+      2024.01
      </p>
     </div>
     <!-- Article 2 -->
     <div>
-     <img alt="Two people discussing over papers" class="w-full h-auto rounded-lg mb-4" src="https://placehold.co/256x144"/>
+     <a href="#" id="imageLink">
+     <img alt="Two people discussing over papers" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-2-256x144.png"/>
+     </a>
      <h2 class="text-xl font-semibold mb-2">
-      Commodo Deserunt
+      水龍迎瑞好運佳瓷
      </h2>
      <p class="text-gray-600 mb-2">
-      Ipsum Occaecat Qui
+      新東陽
      </p>
      <p class="text-gray-400">
-      Nov 20, 2022 • 10 mins read
-     </p>
+        2024.01
+    </p>
     </div>
     <!-- Article 3 -->
     <div>
-     <img alt="Group of people in a meeting" class="w-full h-auto rounded-lg mb-4" src="https://placehold.co/256x144"/>
+     <a href="#" id="imageLink">
+     <img alt="Group of people in a meeting" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-3-256x144.png"/>
+     </a>
      <h2 class="text-xl font-semibold mb-2">
-      Deserunt Occaecat Qui
+      古拉雪莉15年
      </h2>
      <p class="text-gray-600 mb-2">
-      Amet Tempor Dolore
+      JURA
      </p>
      <p class="text-gray-400">
-      Nov 12, 2022 • 5 mins read
+        2024.01
      </p>
     </div>
     <!-- Article 4 -->
@@ -102,3 +108,18 @@
     </div>
    </section>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var imageLink = document.getElementById('imageLink');
+        if (imageLink) {
+            imageLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default link behavior
+                setTimeout(function() {
+                    window.open(imageLink.href, '_blank');
+                }, 300); // Delay for the "landing" animation
+            });
+        }
+    });
+  </script>
+
