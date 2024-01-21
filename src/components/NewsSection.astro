@@ -1,12 +1,32 @@
 ---
 // Props and JavaScript can be added here
 ---
+<style>
+    /* ... existing styles ... */
+
+    #modal {
+        animation: fadeIn 0.3s;
+    }
+    
+    #closeModal {
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 0.5rem 1rem;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
 <main class="container mx-auto px-6 mt-10">
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
     <!-- Article 1 -->
     <div>
-     <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:207369" id="imageLink" target="_blank">
+     <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:207369" id="imageLink" target="_blank">-->
+     <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
      <img alt="肌研極潤PREMIUM" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-1-256x144.png"/>
      </a>
      <h2 class="text-xl font-semibold mb-2">
@@ -21,7 +41,8 @@
     </div>
     <!-- Article 2 -->
     <div>
-     <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:207348" id="imageLink" target="_blank">
+     <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:207348" id="imageLink" target="_blank">-->
+     <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
      <img alt="水龍迎瑞好運佳瓷" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-2-256x144.png"/>
      </a>
      <h2 class="text-xl font-semibold mb-2">
@@ -36,7 +57,8 @@
     </div>
     <!-- Article 3 -->
     <div>
-     <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:200740" id="imageLink" target="_blank">
+     <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:200740" id="imageLink" target="_blank"> -->
+     <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
      <img alt="古拉雪莉15年" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-3-256x144.png"/>
      </a>
      <h2 class="text-xl font-semibold mb-2">
@@ -51,7 +73,8 @@
     </div>
     <!-- Article 4 -->
     <div>
-    <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:201033" id="imageLink" target="_blank">
+    <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:201033" id="imageLink" target="_blank"> -->
+    <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
     <img alt="台茂購物中心" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-4-256x144.png"/>
     </a>   
      <h2 class="text-xl font-semibold mb-2">
@@ -66,7 +89,8 @@
     </div>
     <!-- Article 5 -->
     <div>
-    <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:202256" id="imageLink" target="_blank">
+    <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:202256" id="imageLink" target="_blank"> -->
+    <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
     <img alt="藍莓巧克力蛋糕捲" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-5-256x144.png"/>
     </a>       
      <h2 class="text-xl font-semibold mb-2">
@@ -81,7 +105,8 @@
     </div>
     <!-- Article 6 -->
     <div>
-    <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:202797" id="imageLink" target="_blank">
+    <!-- <a href="https://cdn.holmesmind.com/dev/Mike/Pagination/Clickforce.html?cfadc=10230:202797" id="imageLink" target="_blank"> -->
+    <a href="/images/article-1-movie.gif" id="imageLink" target="_blank">     
     <img alt="怪獸級特色唇彩" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/article-6-256x144.png"/>
     </a>       
         
@@ -134,9 +159,17 @@
     </div>
      <img alt="聯絡人像" class="rounded-r-lg" src="/images/knowmore-portrait.png"/>
    </div>
-  </main>
 
-  <script>
+   <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-4 rounded-lg relative">
+        <button id="closeModal" class="absolute top-0 right-0 m-2 text-black bg-transparent hover:bg-gray-200 rounded">
+            X
+        </button>
+        <img id="modalImg" src="" alt="Animated GIF" class="rounded-lg"/>
+    </div>
+   </div>
+
+  <!--<script>
     document.addEventListener('DOMContentLoaded', function() {
         var imageLink = document.getElementById('imageLink');
         if (imageLink) {
@@ -148,5 +181,36 @@
             });
         }
     });
-  </script>
+  </script> -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var imageLinks = document.querySelectorAll('.image-button');
+        var modal = document.getElementById('modal');
+        var modalImg = document.getElementById('modalImg');
+        var closeModal = document.getElementById('closeModal');
+
+        imageLinks.forEach(function(link) {
+            link.parentElement.addEventListener('click', function(event) {
+                event.preventDefault();
+                var gifUrl = event.currentTarget.getAttribute('href'); // Get the href attribute
+                modalImg.src = gifUrl; // Set the src of the modal image to the href
+                modal.classList.remove('hidden'); // Show the modal
+            });
+        });
+
+        // Close the modal when clicked
+        modal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            modalImg.src = ''; // Reset the src of the modal image
+        });
+
+        // Close modal when the close button is clicked
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            modalImg.src = ''; // Reset the src of the modal image
+        });
+    });
+</script>
+
 
