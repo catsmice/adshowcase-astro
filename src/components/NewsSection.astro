@@ -175,6 +175,7 @@
      <img alt="聯絡人像" class="rounded-r-lg" src="/images/knowmore-portrait.png"/>
    </div>
    -->
+   <!--
    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
     <div class="bg-white p-4 rounded-lg relative">
         <button id="closeModal" class="absolute top-0 right-0 m-2 text-black bg-transparent hover:bg-gray-200 rounded">
@@ -183,6 +184,50 @@
         <img id="modalImg" src="" alt="Animated GIF" class="rounded-lg"/>
     </div>
    </div>
+   -->
+
+    <!-- <div id="modal" class="hidden bg-gray-100 font-sans leading-normal tracking-normal flex items-center justify-center min-h-screen p-4">-->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl">
+        <div class="flex justify-end border-b p-3 text-lg font-semibold">
+            <button id="closeModal" class="text-gray-600 focus:outline-none">
+                x 關閉
+            </button>
+        </div>
+        <div class="p-6">
+            <div class="flex flex-col lg:flex-row">
+            <div class="flex justify-center w-full lg:w-1/2 mb-4">
+                <!-- <img alt="Placeholder image of a mobile phone showing a card interface with a game advertisement" class="rounded-lg shadow-lg" src="https://placehold.co/312x312"/>-->
+                <img id="modalImg" src="" alt="Animated GIF" class="rounded-lg"/>
+            </div>
+            <div class="flex flex-col justify-center w-full lg:w-1/2 lg:pl-6">
+                <h2 class="flex text-2xl font-semibold mb-6">
+                    Mobile Cards
+                </h2>
+                <p class="flex text-gray-700 mb-4">
+                    Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos.
+                </p>
+                <div class="flex mb-4">
+                    <span class="inline-block text-black-600">
+                        支援裝置類型
+                    </span>
+                    <span class="inline-block bg-purple-200 text-purple-600 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        手機
+                    </span>
+                </div>
+                <div class="flex justify-center mb-4">
+                    <img id="barcode" width=120 height=120 src="/images/barcode-1-200x200.png" class="rounded-lg"/>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <button class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none mt-4">
+            View Demo
+        </button>
+        -->
+        </div>
+      </div>
+    </div>  
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
