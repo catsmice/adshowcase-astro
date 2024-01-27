@@ -4,12 +4,12 @@ body {
 
 .image-button {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     display: inline-block; /* To ensure transform applies correctly */
     transform: translate(-5px, -5px); /* Moves the image up by 5px */
 }
 
 .image-button:hover {
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     transform: translate(0, 0); /* Moves the image back to its original position */
 }
