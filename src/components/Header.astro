@@ -1,6 +1,6 @@
 ---
 // Props can be added here if needed
-import {Button} from '@nextui-org/react';
+import ReactComponents from '../components/ReactComponents.jsx';
 
 ---
 <header class="sticky top-0 z-10 w-full overflow-x-hidden bg-white py-3 shadow-lg lg:py-2.5">   
@@ -32,9 +32,12 @@ import {Button} from '@nextui-org/react';
          <a href="https://demopage.multiforce.com.tw/javascript:;" class="text-stone-300 block w-full py-3 px-4">登入系統</a>
          <a href="https://demopage.multiforce.com.tw/" class="text-stone-300 block w-full py-3 px-4">廣告格式</a>
       </nav>
-       
+      <!--<Button color="primary" client:visible>My button</Button> -->
+
+
       <!-- Desktop navigation -->
       <nav class="hidden fixed right-0 top-0 hidden h-screen w-64 translate-x-full flex-col justify-start overflow-y-scroll bg-black bg-opacity-65 text-white lg:static lg:ml-10 lg:h-auto lg:w-auto lg:translate-x-0 lg:flex lg:flex-row lg:justify-center lg:overflow-visible lg:bg-transparent lg:text-black"> 
+         <ReactComponents client:visible/>
          <a href="https://www.multiforce.com.tw/web/about/about.jsp#about_in_01" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">關於我們</a>
          <a href="https://www.multiforce.com.tw/web/news/news.jsp" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">新知新訊</a>
          <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">技術產品</a>
