@@ -1,7 +1,68 @@
 ---
 // Props can be added here if needed
-import ReactComponents from '../components/ReactComponents.jsx';
+import ReactDropDownDesktop from '../components/ReactComponents.jsx';
 
+const dropdownMenus = [
+   {
+      title: "關於我們",
+      items: [
+         { text: "About Us 關於我們", url: "https://www.multiforce.com.tw/web/about/about.jsp#about_in_01" },
+         { text: "AdTech 廣告科技", url: "https://www.multiforce.com.tw/web/about/about.jsp#about_in_02" },
+         { text: "HybridData 數據核心", url: "https://www.multiforce.com.tw/web/about/about.jsp#about_in_03" },
+         { text: "公司簡介", url: "https://www.multiforce.com.tw/web/about/history.jsp" },
+      ]
+   },
+   {
+      title: "新知新訊",
+      items: [
+         { text: "最新消息", url: "https://www.multiforce.com.tw/web/news/news.jsp?dm_id=DM1675393505178" },
+         { text: "技術專欄", url: "https://www.multiforce.com.tw/web/news/news.jsp?dm_id=DM1675393495881" },
+      ]
+   },
+   {
+      title: "技術產品",
+      items: [
+         { text: "Holmes 廣告系統", url: "https://www.multiforce.com.tw/web/product/product.jsp?cp_id=CP1675392188574" },
+         { text: "multiFORCE 聯播網", url: "https://www.multiforce.com.tw/web/product/product.jsp?cp_id=CP1675392088819" },
+         { text: "HybridData 混血數據", url: "https://www.multiforce.com.tw/web/product/product.jsp?cp_id=CP1675392000892" },
+      ]
+   },
+   {
+      title: "商業合作",
+      items: [
+         { text: "經銷商合作", url: "https://www.multiforce.com.tw/web/business/business.jsp?cp_id=CP1675387772119" },
+         { text: "網站主合作", url: "https://www.multiforce.com.tw/web/business/business.jsp?cp_id=CP1675387702067" },
+         { text: "數據合作", url: "https://www.multiforce.com.tw/web/business/business.jsp?cp_id=CP1675387584746" },
+         { text: "雲端技術合作", url: "https://www.multiforce.com.tw/web/business/business.jsp?cp_id=CP1684394320136" },
+      ]
+   },
+   {
+      title: "集團連結",
+      items: [
+         { text: "CLICKFORCE", url: "https://www.clickforce.com.tw/index.php?lang=tw" },
+      ]
+   },
+   {
+      title: "聯絡我們",
+      items: [
+         { text: "聯絡我們", url: "https://www.multiforce.com.tw/web/contact/contact.jsp" },
+      ]
+   },
+   {
+      title: "登入系統",
+      items: [
+         { text: "Holmes Data", url: "https://login.holmesmind.com/zh" },
+         { text: "Holmes Ads", url: "https://login.holmesmind.com/zh" },
+         { text: "Holmes Media", url: "https://login.holmesmind.com/zh" },
+      ]
+   },
+   {
+      title: "廣告格式",
+      items: [
+         { text: "廣告格式", url: "https://demopage.multiforce.com.tw/" },
+      ]
+   },
+];
 ---
 <header class="sticky top-0 z-10 w-full overflow-x-hidden bg-white py-3 shadow-lg lg:py-2.5">   
    <div class="mx-auto flex w-full items-center justify-between px-4 md:px-6 lg:items-stretch lg:justify-start lg:px-24">
@@ -37,7 +98,13 @@ import ReactComponents from '../components/ReactComponents.jsx';
 
       <!-- Desktop navigation -->
       <nav class="hidden fixed right-0 top-0 hidden h-screen w-64 translate-x-full flex-col justify-start overflow-y-scroll bg-black bg-opacity-65 text-white lg:static lg:ml-10 lg:h-auto lg:w-auto lg:translate-x-0 lg:flex lg:flex-row lg:justify-center lg:overflow-visible lg:bg-transparent lg:text-black"> 
-         <ReactComponents client:visible/>
+         {dropdownMenus.map(menu => (
+            <ReactDropDownDesktop title={menu.title} items={menu.items} client:visible />
+         ))}
+      <!--
+         <ReactDropDownDesktop client:visible/>
+         <ReactDropDownDesktop client:visible/>
+
          <a href="https://www.multiforce.com.tw/web/about/about.jsp#about_in_01" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">關於我們</a>
          <a href="https://www.multiforce.com.tw/web/news/news.jsp" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">新知新訊</a>
          <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">技術產品</a>
@@ -46,6 +113,7 @@ import ReactComponents from '../components/ReactComponents.jsx';
          <a href="https://www.multiforce.com.tw/web/contact/contact.jsp" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">聯絡我們</a>
          <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">登入系統</a>
          <a href="https://demopage.multiforce.com.tw/" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">廣告格式</a>
+      -->      
       </nav>
    </div>
 </header>
