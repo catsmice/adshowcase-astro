@@ -35,9 +35,13 @@ const NavigationItem = ({ title, items }) => {
                 style={{ maxHeight: '0' }}
             >
                 {items.map((item, index) => (
-                    <a key={index} href={item.url} className="text-sm text-stone-400 bg-stone-900 block w-full py-3 px-8 border-b border-stone-700">
-                        {item.text}
-                    </a>
+                    <a 
+                    key={index} 
+                    href={item.url} 
+                    className={`text-sm text-stone-400 bg-stone-900 block w-full py-3 px-8 ${index < items.length - 1 ? 'border-b border-stone-700' : ''}`}
+                >
+                    {item.text}
+                </a>
                 ))}
             </div>
         </>
@@ -45,11 +49,24 @@ const NavigationItem = ({ title, items }) => {
 };
 
 const MobileNav = ({ dropdownMenus }) => {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
+
     return (
         <>
-            {dropdownMenus.map((menu, index) => (
-                <NavigationItem key={index} {...menu} />
-            ))}
+            <button id="menuBtn" className="lg:hidden flex flex-col h-4 w-5 z-10 justify-between items-center" onClick={toggleNav}>
+                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+            </button>
+            <nav id="mobileNav" className={`fixed top-0 right-0 ${isNavOpen ? '' : 'hidden'} h-screen w-52 flex-col justify-start overflow-y-scroll bg-black/[0.65] border-zinc-600 border-solid text-white`}>
+                {dropdownMenus.map((menu, index) => (
+                    <NavigationItem key={index} {...menu} />
+                ))}
+            </nav>
         </>
     );
 };

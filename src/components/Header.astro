@@ -75,56 +75,16 @@ const dropdownMenus = [
             </picture>
          </div>
       </a>
- 
-      <!-- Simplified mobile menu icon using Tailwind CSS -->
-      <button id="menuBtn" class="lg:hidden flex flex-col h-4 w-5 z-10 justify-between items-center" onclick="document.getElementById('mobileNav').classList.toggle('hidden');">
-         <span class="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-         <span class="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-         <span class="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-      </button>
 
       <!-- Mobile navigation -->
-      <nav id="mobileNav" class="fixed top-0 right-0 hidden h-screen w-52 flex-col justify-start overflow-y-scroll bg-black/[0.65] border-zinc-600 border-solid text-white">
-         <MobileNav dropdownMenus={dropdownMenus} client:load />
-<!--
-         <a href="https://www.multiforce.com.tw/web/about/about.jsp#about_in_01" class="text-stone-300 inline-block w-full py-3 px-4">關於我們</a>
-         <a href="https://www.multiforce.com.tw/web/news/news.jsp" class="text-stone-300 block w-full py-3 px-4">新知新訊</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="text-stone-300 block w-full py-3 px-4">技術產品</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="text-stone-300 block w-full py-3 px-4">商業合作</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="text-stone-300 block w-full py-3 px-4">集團連結</a>
-         <a href="https://www.multiforce.com.tw/web/contact/contact.jsp" class="text-stone-300 block w-full py-3 px-4">聯絡我們</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="text-stone-300 block w-full py-3 px-4">登入系統</a>
-         <a href="https://demopage.multiforce.com.tw/" class="text-stone-300 block w-full py-3 px-4">廣告格式</a>
- -->      
-      </nav> 
+      <MobileNav dropdownMenus={dropdownMenus} client:load />
 
       <!-- Desktop navigation -->
       <nav class="hidden fixed right-0 top-0 hidden h-screen w-64 translate-x-full flex-col justify-start overflow-y-scroll bg-black bg-opacity-65 text-white lg:static lg:ml-10 lg:h-auto lg:w-auto lg:translate-x-0 lg:flex lg:flex-row lg:justify-center lg:overflow-visible lg:bg-transparent lg:text-black"> 
          {dropdownMenus.map(menu => (
             <DesktopNav title={menu.title} items={menu.items} client:visible />
-         ))}
-      <!--
-         <ReactDropDownDesktop client:visible/>
-         <ReactDropDownDesktop client:visible/>
-
-         <a href="https://www.multiforce.com.tw/web/about/about.jsp#about_in_01" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">關於我們</a>
-         <a href="https://www.multiforce.com.tw/web/news/news.jsp" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">新知新訊</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">技術產品</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">商業合作</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">集團連結</a>
-         <a href="https://www.multiforce.com.tw/web/contact/contact.jsp" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">聯絡我們</a>
-         <a href="https://demopage.multiforce.com.tw/javascript:;" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">登入系統</a>
-         <a href="https://demopage.multiforce.com.tw/" class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">廣告格式</a>
-      -->      
+         ))}  
       </nav>
    </div>
 </header>
 
-<script>
-   function toggleMenu(index) {
-      const menu = document.getElementById(`menuItems${index}`);
-      if (menu) {
-         menu.classList.toggle('hidden');
-      }
-   }
-</script>
