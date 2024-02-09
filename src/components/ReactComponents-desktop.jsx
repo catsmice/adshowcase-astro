@@ -41,7 +41,7 @@ export default function DesktopNav({ title, items }) {
                 <a href="#" 
                     onMouseEnter={openDropdown}
                     onMouseLeave={closeDropdownDelayed}
-                    class="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 duration-300 will-change-transform hover:text-gray-400 text-sm lg:border-b-0 lg:px-5 lg:py-1 lg:pb-0" target="_blank">
+                    className="flex items-center whitespace-nowrap block w-full border-b border-gray-300 px-4 py-3 duration-300 will-change-transform hover:text-gray-400 text-sm lg:border-b-0 lg:px-5 lg:py-2 lg:pb-0" target="_blank">
                     {title}
                 </a>
             </DropdownTrigger>
@@ -66,4 +66,3 @@ export default function DesktopNav({ title, items }) {
         </Dropdown>
     );
 }
-

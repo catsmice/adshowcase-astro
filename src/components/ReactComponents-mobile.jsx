@@ -35,7 +35,7 @@ const NavigationItem = ({ title, items }) => {
                 style={{ maxHeight: '0' }}
             >
                 {items.map((item, index) => (
-                    <a key={index} href={item.url} className="text-sm text-stone-400 bg-stone-900 block w-full py-3 px-8">
+                    <a key={index} href={item.url} className="text-sm text-stone-400 bg-stone-900 block w-full py-3 px-8 border-b border-stone-700">
                         {item.text}
                     </a>
                 ))}
