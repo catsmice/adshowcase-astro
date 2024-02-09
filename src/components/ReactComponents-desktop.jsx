@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 
 //export default function ReactDropDownDesktop() {
-export default function ReactDropDownDesktop({ title, items }) {
+export default function DesktopNav({ title, items }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const closeTimeoutId = useRef(null);
@@ -30,7 +30,7 @@ export default function ReactDropDownDesktop({ title, items }) {
         <Dropdown 
             isOpen={isOpen}
             showArrow
-            offset={10}
+            offset={15}
             // Add classNames prop to customize the dropdown menu style
             classNames={{
                 base: "before:bg-neutral-700", // change arrow background
@@ -66,3 +66,4 @@ export default function ReactDropDownDesktop({ title, items }) {
         </Dropdown>
     );
 }
+
