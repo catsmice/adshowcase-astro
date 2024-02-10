@@ -1,259 +1,98 @@
 ---
-// Props and JavaScript can be added here
+import ReactArticleModal from '../components/ReactArticleModal.jsx';
+
+const articles = [
+    {
+        id: 1,
+        card_img: "/images/ad-1-256x144.png",
+        card_title: "有Bar揪好玩",
+        card_line_1: "KIRIN BAR BEER",
+        card_line_2: "2024.01",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 1",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 2,
+        card_img: "/images/ad-2-256x144.png",
+        card_title: "品味迷人咖啡特調",
+        card_line_1: "Nespresso",
+        card_line_2: "Sep 19, 2022",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 2",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 3,
+        card_img: "/images/ad-3-256x144.png",
+        card_title: "睛漾水凝每日拋",
+        card_line_1: "安視優",
+        card_line_2: "2024.01",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 3",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 4,
+        card_img: "/images/ad-4-256x144.png",
+        card_title: "RZ 450e 充電金免費定保回饋",
+        card_line_1: "LEXUS",
+        card_line_2: "2023.12",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 4",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 5,
+        card_img: "/images/ad-5-256x144.png",
+        card_title: "午後の紅茶",
+        card_line_1: "Kirin",
+        card_line_2: "2023.12",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 5",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 6,
+        card_img: "/images/ad-6-256x144.png",
+        card_title: "光透潤熱銷",
+        card_line_1: "肌研",
+        card_line_2: "2024.01",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 6",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+    {
+        id: 7,
+        card_img: "/images/ad-7-256x144.png",
+        card_title: "收出你的樣子",
+        card_line_1: "IKEA",
+        card_line_2: "Sep 19, 2022",
+        modal_img: "/images/article-1-movie.gif",
+        modal_title: "Mobile Cards 7",
+        modal_description: "Mobile Cards appear at the bottom...",
+        modal_device: "手機, PC",
+        modal_barcodeImg: "/images/barcode-1-200x200.png"
+    },
+];
 ---
-<style>
-    #modal {
-        animation: fadeIn 0.3s;
-        overflow-y: auto; /* Ensure modal content is scrollable */
-
-    }
-    
-    #closeModal {
-        font-size: 1.5rem;
-        line-height: 1;
-        padding: 0.5rem 1rem;
-        align-items: center;
-        display: flex;
-    }
-
-    .modal-body {
-        max-height: 80vh; /* Adjust based on your needs */
-        overflow-y: auto; /* Enable scrolling */
-    }
-
-    .body-noscroll {
-        overflow: hidden;
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-</style>
-
 <main class="container mx-auto px-6 mt-10">
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-    <!-- Article 1 -->
-    <div>
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 1" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-            
-            <img alt="有Bar揪好玩" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-1-256x144.png"/>
-        </a>
-        <h2 class="text-xl font-semibold mb-2">
-            有Bar揪好玩
-        </h2>
-        <p class="text-gray-600 mb-2">
-            KIRIN BAR BEER
-        </p>
-        <p class="text-gray-400">
-            2024.01
-        </p>
-    </div>
-
-    <!-- Article 2 -->
-    <div>    
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 2" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-        
-            <img alt="品味迷人咖啡特調" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-2-256x144.png"/>
-        </a>            
-        <h2 class="text-xl font-semibold mb-2">
-            品味迷人咖啡特調
-        </h2>
-        <p class="text-gray-600 mb-2">
-            Nespresso
-        </p>
-        <p class="text-gray-400">
-            Sep 19, 2022 • 5 mins read
-        </p>
-    </div>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
     
-    <!-- Article 3 -->
-    <div>
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 3" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-    
-            <img alt="睛漾水凝每日拋" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-3-256x144.png"/>
-        </a>    
-        <h2 class="text-xl font-semibold mb-2">
-            睛漾水凝每日拋
-        </h2>
-        <p class="text-gray-600 mb-2">
-            安視優
-        </p>
-        <p class="text-gray-400">
-            2024.01
-        </p>
-    </div>
-    
-    <!-- Article 4 -->
-    <div>
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 4" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
+        {articles.map((article) => (
+            <ReactArticleModal key={article.id} article={article} client:visible/>
+        ))}
 
-            <img alt="RZ 450e 充電金免費定保回饋" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-4-256x144.png"/>
-        </a>  
-        <h2 class="text-xl font-semibold mb-2">
-            RZ 450e 充電金免費定保回饋
-        </h2>
-        <p class="text-gray-600 mb-2">
-            LEXUS
-        </p>
-        <p class="text-gray-400">
-            2023.12
-        </p>
-    </div>
-    
-    <!-- Article 5 -->
-    <div>
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 5" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-
-            <img alt="午後の紅茶" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-5-256x144.png"/>
-        </a>        
-        <h2 class="text-xl font-semibold mb-2">
-            午後の紅茶
-        </h2>
-        <p class="text-gray-600 mb-2">
-            Kirin
-        </p>
-        <p class="text-gray-400">
-            2023.12
-        </p>
-    </div>
-
-    <!-- Article 6 -->
-    <div>
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 6" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-
-            <img alt="光透潤熱銷" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-6-256x144.png"/>
-        </a>      
-        <h2 class="text-xl font-semibold mb-2">
-            光透潤熱銷
-        </h2>
-        <p class="text-gray-600 mb-2">
-            肌研
-        </p>
-        <p class="text-gray-400">
-            2024.01
-        </p>
-    </div>
-
-    <!-- Article 7 -->
-    <div>    
-        <a href="#" class="image-link" 
-            data-modal-img="/images/article-1-movie.gif" 
-            data-modal-title="Mobile Cards 7" 
-            data-modal-description="Mobile Cards appear at the bottom of the page as a deck, users can swipe to reveal the sequence of images or videos." 
-            data-modal-device="手機, PC"
-            data-barcode-img="/images/barcode-1-200x200.png">     
-
-            <img alt="收出你的樣子" class="w-full h-auto rounded-lg mb-4 image-button" src="/images/ad-7-256x144.png"/>
-        </a>               
-        <h2 class="text-xl font-semibold mb-2">
-            收出你的樣子
-        </h2>
-        <p class="text-gray-600 mb-2">
-            IKEA
-        </p>
-        <p class="text-gray-400">
-            Sep 19, 2022 • 5 mins read
-        </p>
-    </div>
-
-</section>
-
-<div id="modal" class="hidden fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center overflow-y-auto">
-    <div class="bg-white rounded-lg shadow-xl max-w-4xl m-2">
-        <!-- Removed duplicate "bg-white rounded-lg shadow-xl max-w-4xl" here since it's already applied to the parent div -->
-        <div class="sticky rounded-lg top-0 z-50 bg-white flex justify-end border-b p-3 text-lg font-semibold">
-            <button id="closeModal" class="text-gray-600 focus:outline-none flex items-center">
-                <span class="material-symbols-outlined" style="margin-bottom: -5px;">close</span> 關閉
-            </button>
-        </div>
-        <div class="p-6 modal-body">
-            <div class="flex flex-col lg:flex-row">
-                <div class="flex justify-center w-full lg:w-1/2 mb-4">
-                    <img id="modalImg" src="" alt="Animated GIF" class="rounded-lg"/>
-                </div>
-                <div class="flex flex-col justify-center w-full lg:w-1/2 lg:pl-6">
-                    <h2 id="modalTitle" class="text-2xl font-semibold mb-6"></h2>
-                    <p id="modalDescription" class="text-gray-700 mb-4"></p>
-                    <div class="mb-4">
-                        <span class="text-black-600">支援裝置類型</span>
-                        <span id="modalDevice" class="bg-purple-200 text-purple-600 rounded-full px-5 py-1 text-sm font-semibold mr-2 mb-2"></span>
-                    </div>
-                    <div class="flex justify-center mb-4">
-                        <img id="barcodeImg" width="120" height="120" src="" class="rounded-lg"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var imageLinks = document.querySelectorAll('.image-link');
-        var modal = document.getElementById('modal');
-        var body = document.body;
-
-        var modalImg = document.getElementById('modalImg');
-        var modalTitle = document.getElementById('modalTitle');
-        var modalDescription = document.getElementById('modalDescription');
-        var modalDevice = document.getElementById('modalDevice');
-        //var modalDesktop = document.getElementById('modalDesktop');
-        var barcodeImg = document.getElementById('barcodeImg');
-        var closeModal = document.getElementById('closeModal');
-
-        imageLinks.forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                modalImg.src = link.getAttribute('data-modal-img');
-                modalTitle.textContent = link.getAttribute('data-modal-title');
-                modalDescription.textContent = link.getAttribute('data-modal-description');
-                modalDevice.textContent = link.getAttribute('data-modal-device');
-                //modalDesktop.textContent = link.getAttribute('data-modal-desktop');
-                barcodeImg.src = link.getAttribute('data-barcode-img');
-                modal.classList.remove('hidden');
-                body.classList.add('body-noscroll'); // Prevent background scrolling
-            });
-        });
-
-        closeModal.addEventListener('click', function() {
-            modal.classList.add('hidden');
-            body.classList.remove('body-noscroll'); // Re-enable background scrolling
-
-        });
-    });
-</script>
-
+    </section>
