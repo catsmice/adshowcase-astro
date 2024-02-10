@@ -21,6 +21,13 @@
         overflow-y: auto; /* Enable scrolling */
     }
 
+    .body-noscroll {
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+    }
+
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -218,6 +225,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         var imageLinks = document.querySelectorAll('.image-link');
         var modal = document.getElementById('modal');
+        var body = document.body;
+
         var modalImg = document.getElementById('modalImg');
         var modalTitle = document.getElementById('modalTitle');
         var modalDescription = document.getElementById('modalDescription');
@@ -236,11 +245,14 @@
                 //modalDesktop.textContent = link.getAttribute('data-modal-desktop');
                 barcodeImg.src = link.getAttribute('data-barcode-img');
                 modal.classList.remove('hidden');
+                body.classList.add('body-noscroll'); // Prevent background scrolling
             });
         });
 
         closeModal.addEventListener('click', function() {
             modal.classList.add('hidden');
+            body.classList.remove('body-noscroll'); // Re-enable background scrolling
+
         });
     });
 </script>
