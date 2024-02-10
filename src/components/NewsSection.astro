@@ -10,6 +10,8 @@
         font-size: 1.5rem;
         line-height: 1;
         padding: 0.5rem 1rem;
+        align-items: center;
+        display: flex;
     }
 
     @keyframes fadeIn {
@@ -176,30 +178,12 @@
 
 </section>
 
-   <!-- 
-   <div class="flex flex-row items-center justify-between bg-purple-900 text-white rounded-lg">
-    <div class="w-1/2 p-8">
-     <h1 class="text-4xl font-semibold mb-4">
-        想進一步瞭解?
-     </h1>
-     <p class="mb-6">
-        提供各式廣告設計、H5動態素材製作、Resize、手繪風格設計等。讓廣告素材能夠在資訊爆炸的時代中，快速抓住消費者目光，以達到行銷目標。
-        根據產品形象融合平台特性和用戶屬性製作最合適且吸睛的廣告素材。
-     </p>
-     <button class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-      聯絡我們
-     </button>
-    </div>
-     <img alt="聯絡人像" class="rounded-r-lg" src="/images/knowmore-portrait.png"/>
-   </div>
-   -->
-   
 <div id="modal" class="hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex justify-center items-center overflow-y-auto">
     <div class="bg-white rounded-lg shadow-xl max-w-4xl m-2">
         <div class="bg-white rounded-lg shadow-xl max-w-4xl">
-            <div class="sticky top-0 z-50 bg-white flex justify-end border-b p-3 text-lg font-semibold">
-                <button id="closeModal" class="text-gray-600 focus:outline-none">
-                    x 關閉
+            <div class="sticky top-0 z-50 bg-white flex justify-end border-b p-3 text-lg font-semibold rounded-lg">
+                <button id="closeModal" class="text-gray-600 focus:outline-none flex items-center">
+                    <span class="material-symbols-outlined" style="margin-bottom: -5px;">close</span>  關閉
                 </button>
             </div>    
         <div class="pt-64 md:pt-4 lg:pt-4 p-6">
