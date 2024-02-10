@@ -31,7 +31,7 @@ const NavigationItem = ({ title, items }) => {
                 </a>
                 {/* Expand button */}
                 <button onClick={toggleSubmenu} className="transform duration-300" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}>
-                    <span class="material-symbols-outlined">expand_more</span> {/* Downward arrow character, rotates on toggle */}
+                    <span className="material-symbols-outlined">expand_more</span> {/* Downward arrow character, rotates on toggle */}
                 </button>
             </div>
             {/* Submenu container with CSS transition for maxHeight */}
@@ -71,8 +71,8 @@ const MobileNav = ({ dropdownMenus }) => {
                     <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
                 </button>
             ) : (
-                <button id="closeBtn" className="lg:hidden fixed top-2 right-5 z-20 p-2 text-white" onClick={toggleNav}>
-                    <span class="material-symbols-outlined">close</span>                
+                <button id="closeBtn" className="lg:hidden fixed top-2 right-2 z-20 p-2 text-white" onClick={toggleNav}>
+                    <span className="material-symbols-outlined">close</span>                
                 </button>
             )}
             
