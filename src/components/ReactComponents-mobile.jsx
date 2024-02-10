@@ -25,14 +25,11 @@ const NavigationItem = ({ title, items }) => {
 
     return (
         <>
-            <div className="flex justify-between items-center text-sm text-stone-200 w-full py-3 px-4 cursor-pointer">
-                <a href="#" onClick={toggleSubmenu}>
-                    {title}
-                </a>
-                {/* Expand button */}
-                <button onClick={toggleSubmenu} className="transform duration-300" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}>
+            <div className="flex justify-between items-center text-sm text-stone-200 w-full py-3 px-4 cursor-pointer" onClick={toggleSubmenu}>
+                <span>{title}</span>
+                <span className="transform duration-300" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}>
                     <span className="material-symbols-outlined">expand_more</span> {/* Downward arrow character, rotates on toggle */}
-                </button>
+                </span>
             </div>
             {/* Submenu container with CSS transition for maxHeight */}
             <div
