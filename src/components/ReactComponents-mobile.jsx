@@ -25,9 +25,15 @@ const NavigationItem = ({ title, items }) => {
 
     return (
         <>
-            <a href="#" onClick={toggleSubmenu} className="text-sm text-stone-200 block w-full py-3 px-4 cursor-pointer">
-                {title}
-            </a>
+            <div className="flex justify-between items-center text-sm text-stone-200 w-full py-3 px-4 cursor-pointer">
+                <a href="#" onClick={toggleSubmenu}>
+                    {title}
+                </a>
+                {/* Expand button */}
+                <button onClick={toggleSubmenu} className="transform duration-300" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}>
+                    <span class="material-symbols-outlined">expand_more</span> {/* Downward arrow character, rotates on toggle */}
+                </button>
+            </div>
             {/* Submenu container with CSS transition for maxHeight */}
             <div
                 ref={submenuRef}
@@ -36,12 +42,12 @@ const NavigationItem = ({ title, items }) => {
             >
                 {items.map((item, index) => (
                     <a 
-                    key={index} 
-                    href={item.url} 
-                    className={`text-sm text-stone-400 bg-stone-900 block w-full py-3 px-8 ${index < items.length - 1 ? 'border-b border-stone-700' : ''}`}
-                >
-                    {item.text}
-                </a>
+                        key={index} 
+                        href={item.url} 
+                        className={`block w-full py-3 px-8 text-sm text-stone-400 bg-stone-900 ${index < items.length - 1 ? 'border-b border-stone-700' : ''}`}
+                    >
+                        {item.text}
+                    </a>
                 ))}
             </div>
         </>
@@ -57,15 +63,27 @@ const MobileNav = ({ dropdownMenus }) => {
 
     return (
         <>
-            <button id="menuBtn" className="lg:hidden flex flex-col h-4 w-5 z-10 justify-between items-center" onClick={toggleNav}>
-                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-                <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
-            </button>
-            <nav id="mobileNav" className={`fixed top-0 right-0 ${isNavOpen ? '' : 'hidden'} h-screen w-52 flex-col justify-start overflow-y-scroll bg-black/[0.65] border-zinc-600 border-solid text-white`}>
-                {dropdownMenus.map((menu, index) => (
-                    <NavigationItem key={index} {...menu} />
-                ))}
+            {/* Conditional rendering for menu button and close button */}
+            {!isNavOpen ? (
+                <button id="menuBtn" className="lg:hidden fixed top-6 right-5 z-20 flex flex-col h-4 w-5 justify-between items-center" onClick={toggleNav}>
+                    <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+                    <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+                    <span className="inline-block h-0.5 w-full bg-gray-700 duration-300"></span>
+                </button>
+            ) : (
+                <button id="closeBtn" className="lg:hidden fixed top-2 right-5 z-20 p-2 text-white" onClick={toggleNav}>
+                    <span class="material-symbols-outlined">close</span>                
+                </button>
+            )}
+            
+            <nav id="mobileNav" 
+                className={`fixed top-0 right-0 h-screen w-52 flex-col justify-start overflow-y-scroll bg-black/[0.65] border-zinc-600 border-solid text-white transform transition-transform duration-300 ease-in-out ${isNavOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                {/* Ensure navigation items are placed below the close button by adjusting padding or margin as necessary */}
+                <div className="pt-12">
+                    {dropdownMenus.map((menu, index) => (
+                        <NavigationItem key={index} {...menu} />
+                    ))}
+                </div>
             </nav>
         </>
     );
