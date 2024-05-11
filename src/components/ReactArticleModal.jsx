@@ -6,11 +6,14 @@ export default function ReactArticleModal({ article }) {
 
     const handleTitleClick = () => {
         // Assuming the gtag function is already included in your project
-        window.gtag('event', 'select_content', {
-            content_type: 'article',
-            item_id: article.card_title
-        });
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+            console.log('Sending event to GA:', article.card_title);
 
+            window.gtag('event', 'select_content', {
+                content_type: 'article',
+                item_id: article.card_title
+            });
+        }
         //onOpen(); // Open the modal after sending the event
     };
 
