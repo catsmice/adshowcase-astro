@@ -4,12 +4,22 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 export default function ReactArticleModal({ article }) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
+    const handleTitleClick = () => {
+        // Assuming the gtag function is already included in your project
+        window.gtag('event', 'select_content', {
+            content_type: 'article',
+            item_id: article.card_title
+        });
+
+        //onOpen(); // Open the modal after sending the event
+    };
+
     return (
         <div>
             <a href="#" className="image-link" onClick={onOpen}>
                 <img className="w-full h-auto rounded-lg mb-4 image-button" src={article.card_img}/>
             </a>
-            <h2 className="text-xl font-semibold mb-2">
+            <h2 className="text-xl font-semibold mb-2" onClick={handleTitleClick}>
                 {article.card_title}
             </h2>
             <p className="text-gray-600 mb-2">
