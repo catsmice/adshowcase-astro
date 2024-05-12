@@ -75,9 +75,9 @@ export default function ReactArticleModal({ article }) {
                 'user_id': userId
             });
         }
-        
+
         // Redirect the user to a specified bit.ly link
-        window.location.href = 'https://bit.ly/example-link'; // Replace with your actual bit.ly link
+        window.location.href = 'https://bit.ly/44BQ71i'; // Replace with your actual bit.ly link
     };
 
     return (
