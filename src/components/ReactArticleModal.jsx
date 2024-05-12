@@ -127,7 +127,7 @@ export default function ReactArticleModal({ article }) {
                                             <span className="bg-purple-200 text-purple-600 rounded-full px-5 py-1 text-sm font-semibold mr-3 mb-2">{article.modal_device}</span>
                                         </div>
                                         <div className="flex justify-center mb-4 mt-4">
-                                            <img src={article.modal_barcodeImg} width="120" height="120" className="rounded-lg"/>
+                                            <img src={article.modal_barcodeImg} width="120" height="120" className="rounded-lg" onClick={handleBarcodeClick}/>
                                         </div>
                                     </div>
                                 </div>
