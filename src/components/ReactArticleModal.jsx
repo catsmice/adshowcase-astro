@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 
+//            <a href="#" className="image-link" onClick={onOpen}>
+
 export default function ReactArticleModal({ article }) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
+    // Function to handle click events
+    const handleModalClick = () => {
+        onOpen();
+
+        // Tracking click via Google Analytics or GTM
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                'event': 'modal_open',
+                'article_id': article.id,
+                'article_title': article.card_title
+            });
+        }
+    }
+
     return (
         <div>
-            <a href="#" className="image-link" onClick={onOpen}>
+            <a href="#" className="image-link" onClick={handleModalClick}>
                 <img className="w-full h-auto rounded-lg mb-4 image-button" src={article.card_img}/>
             </a>
             <h2 className="text-xl font-semibold mb-2">
