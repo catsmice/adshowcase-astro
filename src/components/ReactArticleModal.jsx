@@ -3,6 +3,36 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 
 //            <a href="#" className="image-link" onClick={onOpen}>
 
+function generateUserId() {
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    for (var i = 0; i < 8; i++) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+}
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
 export default function ReactArticleModal({ article }) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
@@ -10,15 +40,43 @@ export default function ReactArticleModal({ article }) {
     const handleModalClick = () => {
         onOpen();
 
+        // Ensure the cookie is set or retrieve it
+        let userId = getCookie('userId');
+        if (!userId) {
+            userId = generateUserId();  // You'd implement this to generate a unique ID
+            setCookie('userId', userId, 365);  // Set cookie to expire in 365 days
+        }
+
         // Tracking click via Google Analytics or GTM
         if (window.dataLayer) {
             window.dataLayer.push({
                 'event': 'modal_open',
                 'article_id': article.id,
-                'article_title': article.card_title
+                'article_title': article.card_title,
+                'user_id': userId
             });
         }
     }
+
+    const handleBarcodeClick = () => {
+        // Ensure the cookie is set or retrieve it
+        let userId = getCookie('userId');
+        if (!userId) {
+            userId = generateUserId();  // You'd implement this to generate a unique ID
+            setCookie('userId', userId, 365);  // Set cookie to expire in 365 days
+        }
+
+        // Push the purchase event to the data layer
+        window.dataLayer.push({
+            'event': 'purchase',
+            'article_id': article.id,
+            'article_title': article.card_title,
+            'user_id': userId
+        });
+
+        // Redirect the user to a specified bit.ly link
+        window.location.href = 'https://bit.ly/example-link'; // Replace with your actual bit.ly link
+    };
 
     return (
         <div>
