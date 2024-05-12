@@ -50,10 +50,6 @@ export default function ReactArticleModal({ article }) {
         // Tracking click via Google Analytics or GTM
         if (window.dataLayer) {
             window.dataLayer.push({
-                'user_id': userId
-            });
-
-            window.dataLayer.push({
                 'event': 'modal_open',
                 'article_id': article.id,
                 'article_title': article.card_title,
@@ -71,17 +67,15 @@ export default function ReactArticleModal({ article }) {
         }
 
         // Push the purchase event to the data layer
-        window.dataLayer.push({
-            'user_id': userId
-        });
-
-        window.dataLayer.push({
-            'event': 'purchase',
-            'article_id': article.id,
-            'article_title': article.card_title,
-            'user_id': userId
-        });
-
+        if (window.dataLayer) { 
+            window.dataLayer.push({
+                'event': 'purchase',
+                'article_id': article.id,
+                'article_title': article.card_title,
+                'user_id': userId
+            });
+        }
+        
         // Redirect the user to a specified bit.ly link
         window.location.href = 'https://bit.ly/example-link'; // Replace with your actual bit.ly link
     };

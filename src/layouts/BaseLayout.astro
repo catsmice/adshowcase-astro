@@ -25,7 +25,59 @@ import Footer from '../components/Footer.astro';
         gtag('config', 'G-WTXBXTYR0X');
     </script>
 
-    <meta charset="utf-8"/>
+    <script>
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for(let i=0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        }
+
+        function generateUserId() {
+            let randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+            }
+            return result;
+        }
+
+        function ensureUserId() {
+            let userId = getCookie('userId');
+            if (!userId) {
+                userId = generateUserId();
+                setCookie('userId', userId, 365); // Set cookie to expire in 365 days
+            }
+            return userId;
+        }
+
+        function pushToDataLayer() {
+            const userId = ensureUserId();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'user_id_set',
+                'user_id': userId
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', pushToDataLayer);
+    </script>
+
+<meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>精彩案例 (測試)</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
