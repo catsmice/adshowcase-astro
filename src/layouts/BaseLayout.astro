@@ -69,7 +69,6 @@ import Footer from '../components/Footer.astro';
             const userId = ensureUserId();
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-                'event': 'user_id_set',
                 'user_id': userId
             });
         }
