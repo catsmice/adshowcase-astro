@@ -85,6 +85,31 @@ import Footer from '../components/Footer.astro';
     </style>
 </head>
 <body class="bg-gray-50">
+
+<!-- CF -->
+<script src="https://s3.ap-northeast-1.amazonaws.com/cdn.doublemax.net/image/creative/20250710/rtid/rtid.js"></script>
+<script>
+    clickforce_rtid("10212001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft=window.cft||function(){(cft.q=cft.q||[]).push([].slice.call(arguments))};
+    function clickForceMyyCFT(){
+        cft("setSiteId", "CF-250700162736");
+        cft("setViewPercentage");
+    };
+</script>
+
+<script>
+    function cFTriggerEventCFpageview_PV() {
+        clickforce_rtid("10212001");
+        cft("send", "event", {
+             action: "CFpageview_PV",
+             category: "viewContents",
+             label: ""
+        });
+    };
+    cFTriggerEventCFpageview_PV();
+</script>
+
 <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4LSVQW6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

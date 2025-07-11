@@ -82,6 +82,18 @@ export default function ReactArticleModal({ article }) {
 
     return (
         <div>
+<script>
+    {`function cFTriggerEventCFcustom_ClickCard() {
+        clickforce_rtid("10212002");
+        cft("send", "event", {
+             action: "CFcustom_ClickCard",
+             category: "custom",
+             label: ""
+        });
+    };
+    cFTriggerEventCFcustom_ClickCard();`}
+</script>
+        
             <a href="#" className="image-link" onClick={handleModalClick}>
                 <img className="w-full h-auto rounded-lg mb-4 image-button" src={article.card_img}/>
             </a>
